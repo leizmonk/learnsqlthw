@@ -1,1 +1,0 @@
-INSERT INTO person_pet (1, 2);
