@@ -1,0 +1,19 @@
+CREATE TABLE person (
+  id INTEGER PRIMARY KEY,
+  first_name VARCHAR,
+  last_name VARCHAR,
+  age INTEGER
+);
+
+CREATE TABLE pet (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR,
+  breed VARCHAR,
+  age INTEGER,
+  dead INTEGER
+);
+
+CREATE TABLE person_pet (
+  person_id INTEGER,
+  pet_id INTEGER
+);
