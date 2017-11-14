@@ -1,19 +1,19 @@
-/*  Removes pets owned by 'Zed' */
-DELETE FROM pet WHERE id IN (
-  SELECT pet.id
+/* Removes people who have dead pets */
+DELETE FROM person WHERE id IN (
+  SELECT person.id
   FROM pet, person_pet, person
   WHERE
   person.id = person_pet.person_id AND
   pet.id = person_pet.pet_id AND
-  person.first_name = 'Zed'
+  pet.dead = 1
 );
 
-SELECT * FROM pet;
+SELECT * FROM person;
 SELECT * FROM person_pet;
 
 DELETE FROM person_pet
-  WHERE pet_id NOT IN (
-    SELECT id FROM pet
+  WHERE person_id NOT IN (
+    SELECT id FROM person
   );
 
 SELECT * FROM person_pet;
