@@ -59,6 +59,8 @@ INSERT INTO person_pet VALUES (0, 1);
 INSERT INTO person_pet VALUES (1, 2);
 INSERT INTO person_pet VALUES (1, 3);
 
+ALTER TABLE person ADD COLUMN weight INTEGER;
+
 /*
 SELECT name, age FROM pet WHERE dead = 1;
 DELETE FROM pet WHERE dead = 1;
