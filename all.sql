@@ -8,7 +8,8 @@ CREATE TABLE person (
   id INTEGER PRIMARY KEY,
   first_name VARCHAR,
   last_name VARCHAR,
-  age INTEGER
+  age INTEGER,
+  dob DATETIME  
 );
 
 CREATE TABLE pet (
@@ -21,21 +22,8 @@ CREATE TABLE pet (
 
 CREATE TABLE person_pet (
   person_id INTEGER,
-  pet_id INTEGER
-);
-
-CREATE TABLE car (
-  id INTEGER PRIMARY KEY,
-  color VARCHAR,
-  make VARCHAR,
-  model INTEGER,
-  year INTEGER,
-  price REAL
-);
-
-CREATE TABLE IF NOT EXISTS person_car (
-  person_id INTEGER,
-  car_id INTEGER
+  pet_id INTEGER,
+  purchased_on DATETIME
 );
 
 INSERT INTO person (id, first_name, last_name, age)
@@ -47,19 +35,14 @@ INSERT INTO pet (id, name, breed, age, dead)
   VALUEs (0, 'Fluffy', 'Unicorn', 1000, 0);;
 INSERT INTO pet VALUES (1, 'Gigantor', 'Robot', 1, 1);
 INSERT INTO pet (id, name, breed, age, dead)
-  VALUES (2, 'Cali', 'Domestic Shorthair', 9, 0);
+  VALUES (2, 'Cali', 'Cat', 9, 0);
 INSERT INTO pet (id, name, breed, age, dead)
   VALUEs (3, 'Azeroth', 'Angel of Death', 3151, 1);
-INSERT INTO car (id, color, make, model, year, price)
-  VALUES (0, 'Blue', 'Ford', 'Explorer', 2013, 14250.35);
-INSERT INTO person_car VALUES (1, 0);
 
 INSERT INTO person_pet (person_id, pet_id) VALUES (0, 0);
-INSERT INTO person_pet VALUES (0, 1);
-INSERT INTO person_pet VALUES (1, 2);
-INSERT INTO person_pet VALUES (1, 3);
-
-ALTER TABLE person ADD COLUMN weight INTEGER;
+INSERT INTO person_pet VALUES (0, 1, '1999-12-31');
+INSERT INTO person_pet VALUES (1, 2, '2013-03-12');
+INSERT INTO person_pet VALUES (1, 3, '2008-08-20');
 
 /*
 SELECT name, age FROM pet WHERE dead = 1;
